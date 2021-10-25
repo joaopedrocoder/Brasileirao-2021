@@ -28,7 +28,7 @@ const ContainerTable = styled.section`
 `
 
 const Table = styled.table`
-margin-top: 10px;
+    margin: 10px 0 150px 0;
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;

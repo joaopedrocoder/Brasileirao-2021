@@ -1,3 +1,4 @@
+import { Footer } from '../../components/Footer/Footer'
 import { Header } from '../../components/Header/Header'
 import { ContainerMain, Content, Games, ContainerTable, Table } from './style'
 
@@ -71,6 +72,8 @@ export const Homepage = () => {
                     </Games>
                 </Content>
             </ContainerMain>
+
+            <Footer/>
         </div>
     )
 }
