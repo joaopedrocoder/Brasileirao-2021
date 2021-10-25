@@ -10,5 +10,13 @@ export const Global = createGlobalStyle`
     body{
         font-family: 'Poppins', sans-serif;
     }
+
+    li{
+        list-style: none;
+    }
+
+    a{
+        text-decoration: none;
+    }
 `
 
