@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Footer } from '../../components/Footer/Footer'
 import { Header } from '../../components/Header/Header'
 import { ContainerMain, Content, Games, ContainerTable, Table } from './style'
@@ -65,6 +66,8 @@ export const Homepage = () => {
                                 <td>+5</td>
                             </tr>
                         </Table>
+
+                        <Link to={'/tabela'}>Ver tabela completa</Link>
                     </ContainerTable>
 
                     <Games>

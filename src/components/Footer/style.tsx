@@ -8,6 +8,7 @@ const ContainerFooter = styled.footer`
     display: flex;
     align-items: center;
     color: white;
+    margin-top: 100px;
 
     p{
         font-size: 18px;

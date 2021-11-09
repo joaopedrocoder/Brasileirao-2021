@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BLUE, FONTCOLOR } from "../../constants/colors";
+import { BLUE, FONTCOLOR} from "../../constants/colors";
 
 const ContainerMain = styled.main`
     margin-top: 60px;
@@ -25,10 +25,19 @@ const Content = styled.div`
 
 const ContainerTable = styled.section`
     flex: 3;
+
+    a{
+        font-size: 14px;
+        color: ${BLUE};
+
+        :hover{
+            text-decoration: underline;
+        }
+    }
 `
 
 const Table = styled.table`
-    margin: 10px 0 150px 0;
+    margin: 10px 0;
     border-collapse: collapse;
     border-spacing: 0;
     width: 100%;
