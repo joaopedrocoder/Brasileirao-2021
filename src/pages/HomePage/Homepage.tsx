@@ -4,9 +4,9 @@ import { Header } from '../../components/Header/Header'
 import { ContainerMain, Content, Games, ContainerTable, Table } from './style'
 
 export const Homepage = () => {
-    const tableRender = () =>{
+    // const tableRender = () =>{
         
-    }
+    // }
 
     return (
         <div>
