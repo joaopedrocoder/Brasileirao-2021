@@ -31,6 +31,10 @@ const Table = styled.table`
     tr:nth-child(even) {
         background-color: rgb(0, 57, 153, 0.1);
     }
+
+    span{
+        font-size: 14px;
+    }
 `
 
 const Rodada = styled.div`
