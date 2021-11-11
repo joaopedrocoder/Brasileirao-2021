@@ -1,9 +1,52 @@
+import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { Footer } from '../../components/Footer/Footer'
 import { Header } from '../../components/Header/Header'
+import { GlobalContext } from '../../globalContext/GlobalContext'
 import { ContainerMain, Content, Games, ContainerTable, Table } from './style'
 
+type tabela = {
+    posicao: number,
+    pontos: number,
+    time: {
+        time_id: number,
+        nome_popular: string,
+        sigla: string,
+        escudo: string
+    },
+    jogos: number,
+    vitorias: number,
+    empates: number,
+    derrotas: number,
+    gols_pro: number,
+    gols_contra: number,
+    saldo_gols: number,
+    aproveitamento: number,
+    variacao_posicao: number,
+    ultimos_jogos: []
+}
+
 export const Homepage = () => {
+    const {novoCampeonato, novaTabela} = useContext<any>(GlobalContext)
+
+    const tabelaRenderizada = novaTabela && novaTabela.map((item: tabela, i: number)=>{
+        if(i < 10){
+            return(
+                <tr key={item.time.time_id} title={item.time.sigla}>
+                    <td>{item.posicao}º - {item.time.nome_popular}</td>
+                    <td>{item.pontos}</td>
+                    <td>{item.jogos}</td>
+                    <td>{item.vitorias}</td>
+                    <td>{item.empates}</td>
+                    <td>{item.derrotas}</td>
+                    <td>{item.gols_pro}</td>
+                    <td>{item.gols_contra}</td>
+                    <td>{item.saldo_gols}</td>
+                </tr>
+            )
+        } 
+    })
+    
     return (
         <div>
            <Header/>
@@ -14,53 +57,24 @@ export const Homepage = () => {
                     <ContainerTable>
                         <h2>Tabela</h2>
                         <Table>
-                            <tr>
-                                <th>Posição</th>
-                                <th>Pts</th>
-                                <th>J</th>
-                                <th>V</th>
-                                <th>E</th>
-                                <th>D</th>
-                                <th>GP</th>
-                                <th>GC</th>
-                                <th>SG</th>
-                            </tr>
+                            
+                            <thead>
+                                <tr>
+                                    <th>Posição</th>
+                                    <th>Pts</th>
+                                    <th>J</th>
+                                    <th>V</th>
+                                    <th>E</th>
+                                    <th>D</th>
+                                    <th>GP</th>
+                                    <th>GC</th>
+                                    <th>SG</th>
+                                </tr>
+                            </thead>
 
-                            <tr>
-                                <td>1 - Atletico Mineiro</td>
-                                <td>30</td>
-                                <td>10</td>
-                                <td>10</td>
-                                <td>0</td>
-                                <td>0</td>
-                                <td>17</td>
-                                <td>8</td>
-                                <td>+9</td>
-                            </tr>
-
-                            <tr>
-                                <td>2 - Fortaleza</td>
-                                <td>25</td>
-                                <td>10</td>
-                                <td>8</td>
-                                <td>1</td>
-                                <td>1</td>
-                                <td>15</td>
-                                <td>9</td>
-                                <td>+6</td>
-                            </tr>
-
-                            <tr>
-                                <td>3 - Flamengo</td>
-                                <td>22</td>
-                                <td>10</td>
-                                <td>7</td>
-                                <td>1</td>
-                                <td>3</td>
-                                <td>18</td>
-                                <td>13</td>
-                                <td>+5</td>
-                            </tr>
+                            <tbody>
+                                {tabelaRenderizada}
+                            </tbody>
                         </Table>
 
                         <Link to={'/tabela'}>Ver tabela completa</Link>
